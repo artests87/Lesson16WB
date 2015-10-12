@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.artests.l16" >
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,9 +13,21 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:label="@string/web"
+                    android:parentActivityName=".MainActivity"
+                    android:theme="@style/AppTheme.NoActionBar"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Web"
+            android:label="@string/web">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="armyan.artests.Web" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="http" />
             </intent-filter>
         </activity>
     </application>
